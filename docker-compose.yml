@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+   wordpressdb:
+     image: mysql:5.7
+     # mount a volume so that we can persist the database data
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     # set some default configuration options
+     environment:
+       MYSQL_ROOT_PASSWORD: wordpress
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: wordpress
+       MYSQL_PASSWORD: wordpress
+
+   wordpress:
+     build: .
+     # link this docker instance to the mysql one defined above
+     depends_on:
+       - wordpressdb
+     # map the ports we want access to i.e localhost:8000 to access in browser
+     ports:
+       - "8000:80"
+     restart: always
+     # mount some volumes so that we can build our theme on the host machine
+     # and have the changes synced to our docker instance
+     volumes: 
+       - ./src/wp-content/themes:/var/www/html/wp-content/themes:rw
+       - ./src/wp-content/plugins:/var/www/html/wp-content/plugins:rw
+volumes:
+    db_data:
