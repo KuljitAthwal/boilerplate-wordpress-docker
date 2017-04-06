@@ -24,7 +24,7 @@ Run the following command in PowerShell or cmd or a CLI of your choosing to disp
 docker ps
 ```
 
-wordpressdb is the mysql container. This container is used by the wordpress container to store the database for the Wordpress install. 
+wordpressdb is the mysql container. This container is used by the wordpress container to store the database for the Wordpress install. A volume, db_data, has also been configured to persist the database
 
 The Wordpress application files are cloned as part of the build process from the github repository : https://github.com/WordPress/WordPress
 
@@ -32,14 +32,14 @@ The themes and plugins folders are set up as volumes so that custom theme and pl
 
 Navigate to http://localhost:8000 in your browser to begin the Wordpress installation. By default the database credentials you need to use are as follows
 
-db name : wordpress
-db username : wordpress
-db password : wordpress
-db host : wordpressdb
+- db name : wordpress
+- db username : wordpress
+- db password : wordpress
+- db host : wordpressdb
 
 ## Coming Soon
-The addition of a default boilerplate theme using Bootstrap
-Configuration management to allow for custom database names, credentials, port mapping etc.
+- The addition of a default boilerplate theme using Bootstrap
+- Configuration management to allow for custom database names, credentials, port mapping etc.
 
 ## License
 
