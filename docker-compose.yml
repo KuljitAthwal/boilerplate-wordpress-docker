@@ -1,6 +1,12 @@
 version: '2'
 
 services:
+   sonarqube:
+     image: sonarqube:alpine
+     ports:
+      - "9000:9000"
+      - "9092:9092"
+
    wordpressdb:
      image: mysql:5.7
      # mount a volume so that we can persist the database data

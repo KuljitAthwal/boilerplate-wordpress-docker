@@ -10,7 +10,7 @@ This is a small project, which replicates many others, to help me get to grips w
 Use docker-compose to build the image and run the two services; wordpressdb, wordpress
 Run the following command in PowerShell or cmd or a CLI of your choosing.
 ```
-docker-composer up
+docker-compose up
 ```
 
 ## Usage
