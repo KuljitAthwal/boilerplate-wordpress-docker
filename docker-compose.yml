@@ -21,7 +21,8 @@ services:
        MYSQL_PASSWORD: wordpress
 
    wordpress:
-     build: .
+     build:
+      context: ./server
      # link this docker instance to the mysql one defined above
      depends_on:
        - wordpressdb
@@ -32,7 +33,7 @@ services:
      # mount some volumes so that we can build our theme on the host machine
      # and have the changes synced to our docker instance
      volumes: 
-       - ./src/wp-content/themes:/var/www/html/wp-content/themes:rw
-       - ./src/wp-content/plugins:/var/www/html/wp-content/plugins:rw
+       - ./server/src/wp-content/themes:/var/www/html/wp-content/themes:rw
+       - ./server/src/wp-content/plugins:/var/www/html/wp-content/plugins:rw
 volumes:
     db_data:
