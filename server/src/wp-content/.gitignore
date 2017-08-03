@@ -1,0 +1,5 @@
+# we dont want to commit development work to this repo
+# so exclude everything in these folders
+
+plugins/*
+themes/*
