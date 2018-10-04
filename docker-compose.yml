@@ -15,10 +15,10 @@ services:
      restart: always
      # set some default configuration options
      environment:
-       MYSQL_ROOT_PASSWORD: wordpress
-       MYSQL_DATABASE: wordpress
-       MYSQL_USER: wordpress
-       MYSQL_PASSWORD: wordpress
+       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+       MYSQL_DATABASE: ${MYSQL_DATABASE}
+       MYSQL_USER: ${MYSQL_USER}
+       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
 
    wordpress:
      build:
@@ -26,9 +26,9 @@ services:
      # link this docker instance to the mysql one defined above
      depends_on:
        - wordpressdb
-     # map the ports we want access to i.e localhost:8000 to access in browser
+     # map the ports we want access to i.e localhost:8080 to access in browser
      ports:
-       - "8000:80"
+       - "8080:80"
      restart: always
      # mount some volumes so that we can build our theme on the host machine
      # and have the changes synced to our docker instance
