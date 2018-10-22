@@ -35,5 +35,16 @@ services:
      volumes: 
        - ./server/src/wp-content/themes:/var/www/html/wp-content/themes:rw
        - ./server/src/wp-content/plugins:/var/www/html/wp-content/plugins:rw
+
+   phpmyadmin:
+     image: phpmyadmin/phpmyadmin
+     environment:
+       - PMA_ARBITRARY=1
+     restart: always
+     ports:
+       - 8090:80
+     volumes:
+       - /sessions
+
 volumes:
     db_data:
