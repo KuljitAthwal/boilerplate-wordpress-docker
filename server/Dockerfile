@@ -1,4 +1,4 @@
-FROM php:7.0-apache
+FROM php:7.4.16-apache
 RUN apt-get update 
 RUN apt-get -y install git
 
