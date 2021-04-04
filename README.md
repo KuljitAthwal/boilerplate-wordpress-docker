@@ -37,6 +37,11 @@ Navigate to http://localhost:8000 in your browser to begin the Wordpress install
 - db password : wordpress
 - db host : wordpressdb
 
+Navigate to http://localhost:8090 in your browser to get to the PhpMyAdmin installation. 
+- server : wordpressdb
+- username : wordpress
+- password : wordpress
+
 ## Coming Soon
 - The addition of a default boilerplate theme using Bootstrap
 - Configuration management to allow for custom database names, credentials, port mapping etc.
